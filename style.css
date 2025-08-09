@@ -1,0 +1,152 @@
+/*
+  Global styles for the “Sound of Melting Glaciers” microsite.
+  The visual language takes cues from the minimal, modular aesthetic of Vitra and USM
+  furniture: clean lines, restrained colours, and clear typography. Colour variables
+  allow for quick adjustment to different palettes.
+*/
+
+:root {
+  --black: #000000;
+  --white: #ffffff;
+  --cyan: #00a8e8; /* Vivid cyan accent */
+  --orange: #ff6f00; /* Warm orange accent */
+  --overlay-bg: rgba(0, 0, 0, 0.45);
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--black);
+  color: var(--white);
+  font-family: Avenir, Montserrat, Helvetica, Arial, sans-serif;
+  line-height: 1.4;
+}
+
+/* Container for the background video */
+#video-container {
+  position: relative;
+  width: 100%;
+  height: 60vh;
+  overflow: hidden;
+}
+
+#background-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* Apply a subtle brightness reduction to make overlaid text pop */
+  filter: brightness(0.75);
+}
+
+/* Overlay layer for text and counters */
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: var(--overlay-bg);
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+.overlay h1 {
+  margin: 0 0 1.5rem 0;
+  font-family: 'Bodoni Moda', serif;
+  font-size: 3rem;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  color: var(--white);
+}
+
+/* Counters are arranged in a flexbox grid */
+.counter-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.counter {
+  background-color: rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--cyan);
+  border-radius: 8px;
+  padding: 1rem 1.5rem;
+  min-width: 200px;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.counter:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+  border-color: var(--orange);
+}
+
+.counter span {
+  display: block;
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--cyan);
+}
+
+.counter p {
+  margin: 0.5rem 0 0;
+  font-size: 0.85rem;
+  color: var(--white);
+  opacity: 0.8;
+}
+
+/* Audio toggle button */
+#audio-toggle {
+  padding: 0.6rem 1.2rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: var(--cyan);
+  color: var(--black);
+  transition: background-color 0.3s ease;
+}
+
+#audio-toggle.active {
+  background-color: var(--orange);
+  color: var(--white);
+}
+
+/* Map section */
+#map-section {
+  width: 100%;
+  height: 40vh;
+  background-color: var(--black);
+  position: relative;
+}
+
+/* The map itself fills its container */
+#map {
+  width: 100%;
+  height: 100%;
+  filter: grayscale(0.2) brightness(0.9);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .overlay h1 {
+    font-size: 2.4rem;
+  }
+  .counter span {
+    font-size: 1.6rem;
+  }
+  .counter p {
+    font-size: 0.75rem;
+  }
+}

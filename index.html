@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Sound of Melting Glaciers</title>
+    <!--
+      Use Google Fonts for the serif (Bodoni Moda) and a sans‑serif fallback (Montserrat).
+      Avenir is commercially licensed and isn’t available via Google Fonts, so the CSS
+      specifies Avenir first and falls back to Montserrat/Helvetica/Arial if it isn’t
+      installed on the system. Bodoni Moda gives the refined, high‑contrast look
+      reminiscent of Vitra/USM typography.
+    -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,300;0,400;0,700;1,400&family=Montserrat:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Video background container -->
+    <div id="video-container">
+      <video id="background-video" autoplay loop muted playsinline>
+        <!-- The user‑provided video illustrates a mountain stream/glacier.
+             MOV files are supported by most modern browsers. If your
+             environment prefers MP4 you can transcode the video offline. -->
+        <source src="L1020001-1.mov" type="video/quicktime" />
+        Your browser does not support the video tag.
+      </video>
+      <div class="overlay">
+        <h1>The Sound of Melting&nbsp;Glaciers</h1>
+        <div class="counter-container">
+          <div class="counter">
+            <span id="volume-remaining">–</span>
+            <p>km³ Eis verbleibend</p>
+          </div>
+          <div class="counter">
+            <span id="melted-since">–</span>
+            <p>m³ seit 1. Jan&nbsp;2024 geschmolzen</p>
+          </div>
+          <div class="counter">
+            <span id="truck-count">–</span>
+            <p>LKW‑Ladungen Wasser</p>
+          </div>
+        </div>
+        <button id="audio-toggle">Ton abspielen</button>
+      </div>
+    </div>
+
+    <!-- Map section: shows the Matterhorn area in hybrid/3D view. -->
+    <section id="map-section">
+      <div id="map"></div>
+    </section>
+
+    <script src="script.js"></script>
+    <!--
+      Load the Google Maps JavaScript API. Replace "YOUR_API_KEY" with a valid API key
+      to enable the map. Without a key the map will not render. The callback
+      function is defined in script.js.
+    -->
+    <script
+      async
+      defer
+      src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap"
+    ></script>
+  </body>
+</html>
